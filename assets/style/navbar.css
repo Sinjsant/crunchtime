@@ -1,0 +1,72 @@
+
+body{
+  margin: 0px;
+}
+
+#navbar {
+  position: fixed;
+  height: 7vh;
+  width: 100%;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  background-color: #E8E8E8;
+  z-index: 1;
+
+}
+
+
+#panelbutton {
+  height: 80%;
+  width: 40px;
+  background-image: url("threelines.svg");
+  background-color: transparent;
+  border-style: hidden;
+  margin-left: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#panelbutton:hover {
+  cursor: pointer;
+}
+
+#panelbutton:focus{
+  outline-width: 0;
+}
+
+
+#sidenav{
+  position: fixed;
+  height: 100vh;
+  width: 0vw;
+  background-color: gray;
+  overflow-x: hidden;
+  z-index: 2;
+  transition: 0.4s;
+}
+
+#closebtn {
+  position: absolute;
+  top: 0px;
+  right: 30px;
+  height: 7%;
+  width: 7%;
+  border-style: hidden;
+  background-image: url("close.svg");
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#closebtn:hover {
+  cursor: pointer;
+}
+
+#closebtn:focus {
+  outline-width: 0;
+}
