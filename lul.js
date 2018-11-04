@@ -1,4 +1,30 @@
+
+
+      // This example displays a marker at the center of Australia.
+      // When the user clicks the marker, an info window opens.
+var config = {
+    apiKey: "AIzaSyCoOGrGt0CINOs1a20Tn1O9rJJ_GEjUmeE",
+    authDomain: "crunchtime-da4a8.firebaseapp.com",
+    databaseURL: "https://crunchtime-da4a8.firebaseio.com",
+    projectId: "crunchtime-da4a8",
+    storageBucket: "crunchtime-da4a8.appspot.com",
+    messagingSenderId: "851108485503"
+  };
+  firebase.initializeApp(config);
+
+  // Get a reference to the database service
+  var database = firebase.database();
+ 
+  */var commentsRef = firebase.database().ref('post-comments/' + postId); 
+commentsRef.on('child_added', function(data) {
+  addCommentElement(postElement, data.key, data.val().text, data.val().author);
+}); */  //camera stuff
+
+
 function simpleLibrary(library, image, hours, seats, capacity, day, sound, food) {
+	return firebase.database().ref('/Count/' + library).once('value').then(function(snapshot) {
+    	seats = snapshot.val();
+    }
     var popup = document.getElementById("myPopup");
     var soundimage = '';
     var foodimg = '';
