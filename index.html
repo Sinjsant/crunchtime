@@ -40,7 +40,7 @@
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyCoOGrGt0CINOs1a20Tn1O9rJJ_GEjUmeE",
+    apiKey: //"Insert API Key",
     authDomain: "crunchtime-da4a8.firebaseapp.com",
     databaseURL: "https://crunchtime-da4a8.firebaseio.com",
     projectId: "crunchtime-da4a8",
@@ -72,8 +72,17 @@
           infowindow.open(map, marker);
         });
       }
-
-
+function updateData(ins, outs) {
+var request = new XMLHttpRequest();
+        request.open("GET", "https://crunchtime-da4a8.firebaseio.com/libraries/Moffitt.json", false);
+        request.onload = function(){
+            var data = JSON.parse(this.response);
+            var dbRef = firebase.database().ref().child('libraries').child('Moffitt');
+            dbRef.set({
+            count: data.count + ins - outs
+        });
+        }
+    }
     function simpleLibrary(library) {
     var request = new XMLHttpRequest();
         request.open("GET", "https://crunchtime-da4a8.firebaseio.com/libraries/" + library + ".json", false);
@@ -82,6 +91,7 @@
             seats = data.capacity - data.count;
             capacity = Math.round((data.count / data.capacity) * 100);
             image = data.image;
+            updateData(5, 0);
 
             var d = new Date();
             var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
