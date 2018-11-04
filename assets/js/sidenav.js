@@ -8,5 +8,4 @@ function closeNav() {
 
 function seeMore() {
   openNav();
-  infowindow.close(map);
 }
