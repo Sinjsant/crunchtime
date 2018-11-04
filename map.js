@@ -1,8 +1,10 @@
 // import styles from "./mapstyle.js";
 
 var map;
+var allMarkers = [];
 var libs = [
-  ['Moffitt', [37.872646, -122.26072]]
+  ['Moffitt', 37.872646, -122.26072],
+  ['Doe', 37.872285, -122.259604]
 ];
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -99,12 +101,18 @@ var image = {
  anchor: new google.maps.Point(0, 32)
 };
 
-for (var i = 0; i < libs.length; i++) {
-  var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(libs[i][1][0], libs[i][1][1]),
-    map: map,
-    icon: image
-  })
+var marker, i;
+for (i = 0; i < libs.length; i++) {
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(libs[i][1], libs[i][2]),
+      map: map,
+      icon: image,
+      title: libs[i][0]
+  });
+  allMarkers.push(marker);
+}
+for (i = 0; i < allMarkers.length; i++) {
+  console.log(allMarkers[i].title);
 }
 
 }
