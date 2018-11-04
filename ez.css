@@ -131,3 +131,76 @@
     from {opacity: 0;}
     to {opacity:1 ;}
 } 
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Info Windows</title>
+    <style type="text/css">
+#submit {
+  background-color: gold;
+  padding: .5em;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 6px;
+  color: white;
+  font-family: 'Oswald';
+  font-size: 13px;
+  text-decoration: none;
+  border: none;
+  width: 100px;
+}
+
+</style>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+    function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          maxWidth: 250
+        });
+
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          title: 'Uluru (Ayers Rock)'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSacD24q7YLnP1HeFxUZXz-EMwreAxJf8&callback=initMap">
+    </script>
+  </body>
+</html>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-database.js"></script>
+
