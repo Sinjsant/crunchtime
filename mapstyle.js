@@ -1,4 +1,4 @@
-var styles = [
+var test = [
   {
     "elementType": "geometry",
     "stylers": [
@@ -266,4 +266,4 @@ var styles = [
   }
 ];
 
-export styles;
+// export test;
