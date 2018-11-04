@@ -5,19 +5,25 @@
   <meta name="description" content="Berkeley Crunchtime">
   <meta charset="UTF-8">
   <link rel="stylesheet" href="assets/style/navbar.css">
+  <link rel="stylesheet" href="assets/style/map.css">
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <script type="text/javascript" src="assets/js/bigassfunction.js"></script>
+  <script type="text/javascript" src="assets/js/mapstyle.js"></script>
+  <script type="text/javascript" src="assets/js/map.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSacD24q7YLnP1HeFxUZXz-EMwreAxJf8&callback=initMap"
+  async defer></script>
+  <script src="assets/js/sidenav.js"></script>
 </head>
-
-
 
 <body>
   <div id = "navbar">
     <button id = "panelbutton" onclick = "openNav()"></button>
   </div>
-
   <div id = "sidenav">
     <button id = "closebtn" onclick = "closeNav()"></button>
   </div>
-  <script src="assets/js/sidenav.js"></script>
+  <div id="map"></div>
 </body>
 
 </html>

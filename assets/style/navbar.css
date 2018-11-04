@@ -1,7 +1,4 @@
 
-body{
-  margin: 0px;
-}
 
 #navbar {
   position: fixed;
@@ -12,7 +9,7 @@ body{
   flex-direction: row;
   align-items: center;
   justify-content: left;
-  background-color: #E8E8E8;
+  background-color: #18164F;
   z-index: 1;
 
 }

@@ -26,6 +26,9 @@ function initMap() {
    // The anchor for this image is the base of the flagpole at (0, 32).
    anchor: new google.maps.Point(0, 32)
   };
+ var infowindow = new google.maps.InfoWindow({
+          content: "test"
+        });
 
   var marker, i;
   for (i = 0; i < libs.length; i++) {
@@ -39,8 +42,8 @@ function initMap() {
   }
   for (i = 0; i < allMarkers.length; i++) {
     google.maps.event.addListener(allMarkers[i], 'click', function() {
-          map.setZoom(18);
-          map.setCenter(this.getPosition());
+          infowindow.setContent(simpleLibrary(this.getTitle(), "https://americanlibrariesmagazine.org/wp-content/uploads/2017/08/design-moffitt-1.jpg", "23", "50", "10", "Monday", true, true));
+          infowindow.open(map, this);
     });
   }
 }
